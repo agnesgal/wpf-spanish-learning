@@ -7,6 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <Button FontSize="17" Background ="Red" Opacity="0.8" Content="Szógyakorlat" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Margin="109,161,0,0" Height="79" Click="Button_Click"/>
+        <Button FontSize="17" Background ="Red" Opacity="0.8" Content="Ragozás" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Margin="326,161,0,0" Height="79"/>
+        <Button FontSize="17" Background ="Red" Opacity="0.8" Content="Fordítás" HorizontalAlignment="Left" VerticalAlignment="Top" Width="132" Margin="555,161,0,0" Height="79"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Resources/Background.jpg" Opacity="0.5" />
+        </Grid.Background>
     </Grid>
 </Window>
