@@ -22,42 +22,78 @@ namespace WpfApp2
     {
         DbDataHandler dbDataHandler;
         Word word;
+        Boolean IsHungarian = true;
 
         public Window1()
         {
             InitializeComponent();
             dbDataHandler = new DbDataHandler(new WordDbContexts());
             WordBox1.IsReadOnly = true;
-            word = dbDataHandler.SearchHungarianWord();
+            word = dbDataHandler.SearchWord();
             WordBox1.AppendText(word.HungarianWord);
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            WordBox1.Clear();
-            WordBox1.AppendText(dbDataHandler.SearchHungarianWord().HungarianWord);
-        }
-
 
         private void OnKeyDownHandler(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Return)
             {
-                if(WordBox2.Text == word.SpanishWord)
+                if(IsHungarian)
                 {
-                    WordBox1.Clear();
-                    WordBox2.Clear();
-                    word = dbDataHandler.SearchHungarianWord();
-                    WordBox1.AppendText(word.HungarianWord);
+                    if (WordBox2.Text == word.SpanishWord)
+                    {
+                        BoxClearing();
+                        WordBox2.Foreground = Brushes.Black;
+                        word = dbDataHandler.SearchWord();
+                        WordBox1.AppendText(word.HungarianWord);
+                    }
+                    else
+                    {
+                        WordBox2.Foreground = Brushes.Red;
+                        WordBox2.Text = word.SpanishWord;
+                    }
                 }
                 else
                 {
-                    Foreground = Brushes.Red;
+                    if (WordBox2.Text == word.HungarianWord)
+                    {
+                        BoxClearing();
+                        WordBox2.Foreground = Brushes.Black;
+                        word = dbDataHandler.SearchWord();
+                        WordBox1.AppendText(word.SpanishWord);
+                    }
+                    else
+                    {
+                        WordBox2.Foreground = Brushes.Red;
+                        WordBox2.Text = word.HungarianWord;
+                    }
 
-                    WordBox2.Text = word.SpanishWord;
                 }
 
             }
+        }
+
+        private void SpanishFlag_Click(object sender, RoutedEventArgs e)
+        {
+            BoxClearing();
+            IsHungarian = false;
+            WordBox2.Foreground = Brushes.Black;
+            word = dbDataHandler.SearchWord();
+            WordBox1.AppendText(word.SpanishWord);
+        }
+
+        private void HungarianFlag_Click(object sender, RoutedEventArgs e)
+        {
+            BoxClearing();
+            IsHungarian = true;
+            WordBox2.Foreground = Brushes.Black;
+            word = dbDataHandler.SearchWord();
+            WordBox1.AppendText(word.HungarianWord);
+        }
+
+        private void BoxClearing()
+        {
+            WordBox1.Clear();
+            WordBox2.Clear();
         }
 
     }

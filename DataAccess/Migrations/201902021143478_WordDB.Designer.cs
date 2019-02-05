@@ -13,7 +13,7 @@ namespace DataAccess.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201901302045047_WordDB"; }
+            get { return "201902021143478_WordDB"; }
         }
         
         string IMigrationMetadata.Source

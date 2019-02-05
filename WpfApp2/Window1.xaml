@@ -8,11 +8,37 @@
         Title="Window1" Height="450" Width="800">
     <Grid>
         <TextBox FontSize="17" Name="WordBox1" Opacity="0.9" HorizontalAlignment="Left" Height="80" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Margin="170,156,0,0"/>
-        <Image Source="Resources\SpanishFlag.png" Opacity="0.7" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="52" Margin="626,10,0,0"/>
-        <Image Source="Resources\HungarianFlag.png" Opacity="0.7" HorizontalAlignment="Left" Height="35" VerticalAlignment="Top" Width="49" Margin="708,10,0,0"/>
         <TextBox KeyDown="OnKeyDownHandler" FontSize="17" Name="WordBox2" Opacity="0.9" HorizontalAlignment="Left" Height="80" TextWrapping="Wrap" VerticalAlignment="Top" Width="118" Margin="510,156,0,0"/>
-
-        <Button Content="Next" HorizontalAlignment="Left" Margin="374,244,0,0" VerticalAlignment="Top" Width="70" Click="Button_Click" Height="30"/>
+        <Button Click="SpanishFlag_Click" Margin="613,10,121,364" HorizontalAlignment="Center" ToolTip="Change to Spanish!" Width="58">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border x:Name="theBorder" BorderBrush="Transparent" BorderThickness="2">
+                        <Image Source="/Resources/SpanishFlag.png" Height="45"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="theBorder"
+                                Value="LightSkyBlue"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button  Click="HungarianFlag_Click" Margin="704,10,30,364" HorizontalAlignment="Center" ToolTip="Change to Hungarian!" Width="58">
+            <Button.Template>
+                <ControlTemplate>
+                    <Border x:Name="theBorder" BorderBrush="Transparent" BorderThickness="2">
+                        <Image Source="/Resources/HungarianFlag.png" Height="45"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" TargetName="theBorder"
+                                Value="LightSkyBlue"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
         <Grid.Background>
             <ImageBrush ImageSource="/Resources/Background1.jpg" Opacity="0.5" />
         </Grid.Background>

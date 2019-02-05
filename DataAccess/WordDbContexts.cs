@@ -7,6 +7,5 @@ namespace DataAccess
         public WordDbContexts() : base("name=WordDbEntities") { }
         public DbSet<Word> Words { get; set; }
         public DbSet<Conjugation> Conjugations { get; set; }
-
     }
 }

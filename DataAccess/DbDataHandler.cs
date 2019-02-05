@@ -15,7 +15,7 @@ namespace DataAccess
             WordDbContexts = wordDbContexts;
         }
 
-        public Word SearchHungarianWord()
+        public Word SearchWord()
         {
             List<Word> words = WordDbContexts.Words.ToList();
             var random = new Random();

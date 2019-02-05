@@ -9,11 +9,9 @@ namespace DataAccess
         public int Id { get; set; }
 
         [Required]
-        [StringLength(25, MinimumLength = 3)]
         public string HungarianWord { get; set; }
 
         [Required]
-        [StringLength(25, MinimumLength = 3)]
         public string SpanishWord { get; set; }
 
         public Conjugation Conjugation { get; set; }
